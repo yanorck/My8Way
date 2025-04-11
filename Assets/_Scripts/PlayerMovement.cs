@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private AudioSource audio;
+    private AudioSource audioo;
     public float speed;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audio = GetComponent<AudioSource>();
+        audioo = GetComponent<AudioSource>();
     }
     
     void FixedUpdate()
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (GameControler.gameOver) return;
         if (other.tag == "Coletavel")
         {
-            audio.Play();
+            audioo.Play();
             GameControler.AddScore(1);
             Destroy(other.gameObject);
             
