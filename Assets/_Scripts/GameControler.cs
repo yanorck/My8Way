@@ -2,20 +2,31 @@ using UnityEngine;
 
 public static class GameControler
 {
-    private static int collectableCount;
+    private static bool isGameOver = false;
+    private static int score = 0;
 
     public static bool gameOver
     {
-        get {return collectableCount <= 0;}
+        get { return isGameOver; }
     }
 
     public static void Init()
     {
-        collectableCount = 8;
+        isGameOver = false;
+        score = 0;
     }
 
-    public static void Collect()
+    public static void ForceGameOver()
     {
-        collectableCount--;
+        isGameOver = true;
+    }
+    public static void AddScore(int value)
+    {
+        score += value;
+    }
+
+    public static int GetScore()
+    {
+        return score;
     }
 }
